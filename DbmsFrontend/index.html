@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MyHotel - Login/Signup</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="auth-container">
+      <div class="auth-header">
+        <h1>MyHotel</h1>
+        <p>Your comfort is our priority</p>
+      </div>
+
+      <div class="tab-nav">
+        <button class="tab-button active" id="loginTab">Login</button>
+        <button class="tab-button" id="signupTab">Sign Up</button>
+      </div>
+
+      <div id="errorMessage" class="error-message"></div>
+      <div id="successMessage" class="success-message"></div>
+
+      <div id="loginFormContainer" class="form-container">
+        <form id="loginForm">
+          <div class="form-group">
+            <label for="loginUsername">Username</label>
+            <input
+              type="text"
+              id="loginUsername"
+              name="username"
+              required
+              aria-required="true"
+              placeholder="Enter your username"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="loginPassword">Password</label>
+            <input
+              type="password"
+              id="loginPassword"
+              name="password"
+              required
+              aria-required="true"
+              placeholder="Enter your password"
+            />
+          </div>
+
+          <div class="form-group">
+            <label>Login As</label>
+            <div class="role-selector">
+              <label for="loginRoleGuest">
+                <input
+                  type="radio"
+                  id="loginRoleGuest"
+                  name="loginRole"
+                  value="guest"
+                  checked
+                />
+                <span>Guest</span>
+              </label>
+              <label for="loginRoleStaff">
+                <input
+                  type="radio"
+                  id="loginRoleStaff"
+                  name="loginRole"
+                  value="staff"
+                />
+                <span>Staff</span>
+              </label>
+            </div>
+          </div>
+
+          <button type="submit">Login</button>
+        </form>
+      </div>
+
+      <div
+        id="signupFormContainer"
+        class="form-container"
+        style="display: none"
+      >
+        <form id="signupForm">
+          <div class="form-group">
+            <label for="signupUsername">Username</label>
+            <input
+              type="text"
+              id="signupUsername"
+              name="username"
+              required
+              aria-required="true"
+              placeholder="Choose a username"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="signupEmail">Email</label>
+            <input
+              type="email"
+              id="signupEmail"
+              name="email"
+              required
+              aria-required="true"
+              placeholder="Enter your email"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="signupPassword">Password</label>
+            <input
+              type="password"
+              id="signupPassword"
+              name="password"
+              required
+              aria-required="true"
+              placeholder="Create a password"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="signupConfirmPassword">Confirm Password</label>
+            <input
+              type="password"
+              id="signupConfirmPassword"
+              name="confirmPassword"
+              required
+              aria-required="true"
+              placeholder="Confirm your password"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="signupPhone">Phone Number (Optional)</label>
+            <input
+              type="tel"
+              id="signupPhone"
+              name="phone"
+              pattern="[0-9]{10}"
+              placeholder="Enter your phone number"
+            />
+          </div>
+
+          <p class="signup-note">
+            Note: Signing up will create a Guest account
+          </p>
+
+          <button type="submit">Sign Up</button>
+        </form>
+      </div>
+    </div>
+    <!-- <script src="script.js"></script> -->
+    <script src="script.js"></script>
+  </body>
+</html>

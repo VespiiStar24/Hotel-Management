@@ -1,0 +1,741 @@
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px; /* Adjusted for horizontal padding */
+}
+
+/* Main Container */
+.auth-container {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 450px;
+  overflow: hidden;
+}
+
+/* Header */
+.auth-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 30px;
+  text-align: center;
+}
+
+.auth-header h1 {
+  font-size: 36px;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.auth-header p {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+/* Tab Navigation */
+.tab-nav {
+  display: flex;
+  background: #f5f5f5;
+  padding: 0;
+}
+
+.tab-button {
+  flex: 1;
+  padding: 15px;
+  border: none;
+  background: transparent;
+  font-size: 16px;
+  font-weight: 600;
+  color: #666;
+  cursor: pointer;
+  transition: color 0.3s ease, background 0.3s ease; /* Specified transitions */
+  position: relative;
+}
+
+.tab-button:hover {
+  background: #e8e8e8;
+}
+
+.tab-button.active {
+  background: white;
+  color: #667eea;
+}
+
+.tab-button.active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* Form Container */
+.form-container {
+  padding: 30px;
+}
+
+/* Form Groups */
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  color: #333;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+/* Input Fields */
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="tel"] {
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  background: #fafafa;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus {
+  outline: none;
+  border-color: #667eea;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* Role Selector */
+.role-selector {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.role-selector label {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: #fafafa;
+}
+
+.role-selector label:hover {
+  border-color: #667eea;
+  background: #f0f4ff;
+}
+
+.role-selector input[type="radio"] {
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+.role-selector input[type="radio"]:checked + span {
+  color: #667eea;
+  font-weight: 600;
+}
+
+/* Submit Button */
+button[type="submit"] {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+button[type="submit"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+button[type="submit"]:active {
+  transform: translateY(0);
+}
+
+/* Messages */
+.error-message,
+.success-message {
+  padding: 12px 15px;
+  border-radius: 8px;
+  margin: 20px 30px;
+  font-size: 14px;
+  display: none;
+  animation: slideDown 0.3s ease;
+}
+
+.error-message {
+  background-color: #fee;
+  color: #c33;
+  border-left: 4px solid #c33;
+}
+
+.success-message {
+  background-color: #efe;
+  color: #3c3;
+  border-left: 4px solid #3c3;
+}
+
+.error-message.show,
+.success-message.show {
+  display: block;
+}
+
+/* Signup Note */
+.signup-note {
+  font-size: 12px;
+  color: #666;
+  text-align: center;
+  margin-bottom: 15px;
+  padding: 8px;
+  background: #f0f4ff;
+  border-radius: 5px;
+}
+
+/* Animation */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .auth-container {
+    margin: 10px;
+  }
+
+  .auth-header h1 {
+    font-size: 28px;
+  }
+
+  .form-container {
+    padding: 20px;
+  }
+
+  .role-selector {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+/* ========================================
+   GUEST DASHBOARD STYLES
+   ======================================== */
+
+/* Dashboard Body */
+.dashboard-body {
+  background: #f5f7fa;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Navigation Bar */
+.navbar {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 25px 0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.nav-logo {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* Shared Welcome Text and Button Styles */
+.welcome-text {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.welcome-text span {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.btn-logout {
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 2px solid white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 15px;
+  transition: all 0.3s ease;
+}
+
+.btn-logout:hover {
+  background: white;
+  color: #667eea;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Dashboard Container */
+.dashboard-container {
+  max-width: 1400px;
+  margin: 30px auto 0;
+  padding: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(550px, 1fr));
+  gap: 30px;
+  flex: 1;
+}
+
+@media (max-width: 768px) {
+  .dashboard-container {
+    gap: 15px; /* Adjusted gap for smaller screens */
+  }
+}
+
+/* ========================================
+   STAFF DASHBOARD STYLES
+   ======================================== */
+
+/* Staff Header */
+.staff-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 20px 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-content {
+  max-width: 1400px; /* Aligned with guest dashboard */
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Adjust main content padding to account for header */
+.staff-container {
+  padding: 40px 20px 20px;
+  max-width: 1400px; /* Aligned with guest dashboard */
+  margin: auto;
+  font-family: "Segoe UI", sans-serif;
+}
+
+@media (max-width: 480px) {
+  .staff-container {
+    padding: 30px 10px 10px;
+  }
+}
+
+/* Container & Sections */
+.staff-container h2 {
+  margin-bottom: 15px;
+  color: #333;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 5px;
+}
+
+/* Overview Cards */
+.overview-cards {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 25px;
+}
+
+.overview-card {
+  flex: 1;
+  background-color: #f5f5f5;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.overview-card h3 {
+  margin: 10px 0;
+  font-size: 1.2rem;
+  color: #555;
+}
+
+/* Tables */
+.staff-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 30px;
+}
+
+.staff-table th,
+.staff-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+.staff-table th {
+  background: linear-gradient(
+    135deg,
+    #667eea 0%,
+    #764ba2 100%
+  ); /* Aligned with theme */
+  color: white;
+}
+
+.staff-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.staff-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Forms */
+#roomForm {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+#roomForm input,
+#roomForm select,
+#roomForm button {
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 0.95rem;
+}
+
+#roomForm button {
+  background-color: #28a745;
+  color: white;
+  cursor: pointer;
+  border: none;
+  transition: background 0.3s;
+}
+
+#roomForm button:hover {
+  background-color: #218838;
+}
+
+/* Messages */
+.message {
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.message.success {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.message.error {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+/* Select boxes in tables */
+.staff-table select {
+  padding: 5px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+/* Dashboard Cards */
+.dashboard-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+}
+
+.card-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 20px;
+}
+
+.card-header h3 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.card-body {
+  padding: 25px;
+}
+
+/* Form Row (for side-by-side fields) */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+/* Cost Display */
+.cost-display {
+  background: #f0f4ff;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+}
+
+.cost-amount {
+  color: #667eea;
+  font-size: 20px;
+}
+
+/* Primary Button */
+.btn-primary {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+/* Select Dropdown */
+select {
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 14px;
+  background: #fafafa;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+select:focus {
+  outline: none;
+  border-color: #667eea;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* Textarea */
+textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 14px;
+  background: #fafafa;
+  font-family: inherit;
+  resize: vertical;
+  transition: all 0.3s ease;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: #667eea;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* Loading Text */
+.loading-text {
+  text-align: center;
+  color: #999;
+  padding: 20px;
+  font-style: italic;
+}
+
+/* Booking/Order Items */
+.booking-item,
+.order-item {
+  padding: 15px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  border-left: 4px solid #667eea;
+}
+
+.booking-item h4,
+.order-item h4 {
+  color: #333;
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+
+.booking-item p,
+.order-item p {
+  color: #666;
+  font-size: 14px;
+  margin: 4px 0;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+.status-confirmed {
+  background: #d4edda;
+  color: #155724;
+}
+
+.status-pending {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.status-delivered {
+  background: #d4edda;
+  color: #155724;
+}
+
+.status-preparing {
+  background: #d1ecf1;
+  color: #0c5460;
+}
+
+/* Toast Notification */
+.toast {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  padding: 15px 25px;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.toast.success {
+  background: #28a745;
+}
+
+.toast.error {
+  background: #dc3545;
+}
+
+/* Responsive Design for Dashboard */
+@media (max-width: 768px) {
+  .dashboard-container {
+    grid-template-columns: 1fr;
+    gap: 15px; /* Adjusted gap */
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .nav-content {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+    padding: 0 15px; /* Adjusted padding */
+  }
+
+  .nav-right {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .staff-container {
+    padding: 30px 10px 10px;
+  }
+}

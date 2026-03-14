@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Staff Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="dashboard-body">
+    <header class="navbar">
+      <div class="nav-content">
+        <div class="nav-logo">MyHotel Staff</div>
+        <div class="nav-right">
+          <span class="welcome-text"
+            >Welcome, <span id="usernameDisplay"></span>!</span
+          >
+          <button id="logoutBtn" class="btn-logout">Logout</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Add this message div -->
+    <div id="message" class="message"></div>
+
+    <div class="dashboard-container">
+      <!-- Hotel Overview Card -->
+      <div class="dashboard-card">
+        <div class="card-header">
+          <h3>Hotel Overview</h3>
+          <p id="currentDateTime" class="date-time"></p>
+        </div>
+        <div class="card-body">
+          <div class="overview-cards">
+            <div class="overview-card">
+              <p>Total Rooms: <span id="totalRooms">0</span></p>
+            </div>
+            <div class="overview-card">
+              <p>Occupied Rooms: <span id="occupiedRooms">0</span></p>
+            </div>
+            <div class="overview-card">
+              <p>Pending Orders: <span id="pendingOrders">0</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bookings Card -->
+      <div class="dashboard-card">
+        <div class="card-header">
+          <h3>All Bookings</h3>
+        </div>
+        <div class="card-body">
+          <div id="bookingsContainer" class="card-items">
+            <!-- Bookings populated by staff.js -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Room Management Card -->
+      <div class="dashboard-card">
+        <div class="card-header">
+          <h3>Room Management</h3>
+        </div>
+        <div class="card-body">
+          <form id="roomForm" class="form-row">
+            <input
+              type="number"
+              id="roomNumber"
+              placeholder="Room Number"
+              required
+              min="1"
+            />
+            <select id="roomStatus">
+              <option value="Available">Available</option>
+              <option value="Booked">Booked</option>
+            </select>
+            <button type="submit" class="btn-primary">Add / Update Room</button>
+          </form>
+          <div id="roomsContainer" class="card-items">
+            <!-- Rooms populated by staff.js -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Food Orders Card -->
+      <div class="dashboard-card">
+        <div class="card-header">
+          <h3>Food Orders</h3>
+        </div>
+        <div class="card-body">
+          <div id="foodOrdersContainer" class="card-items">
+            <!-- Food orders populated by staff.js -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Activity Logs Card -->
+      <div class="dashboard-card">
+        <div class="card-header">
+          <h3>Activity Logs</h3>
+        </div>
+        <div class="card-body">
+          <div id="activityLogsContainer" class="card-items">
+            <!-- Logs populated by staff.js -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="staff.js"></script>
+  </body>
+</html>

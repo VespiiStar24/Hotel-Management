@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MyHotel - Guest Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="dashboard-body">
+    <!-- Top Navigation Bar -->
+    <nav class="navbar">
+      <div class="nav-content">
+        <h2 class="nav-logo">MyHotel</h2>
+        <div class="nav-right">
+          <span class="welcome-text"
+            >Welcome, <span id="usernameDisplay"></span>!</span
+          >
+          <button id="logoutBtn" class="btn-logout">Logout</button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Dashboard Container -->
+    <div class="dashboard-container">
+      <!-- My Bookings Section -->
+      <div class="dashboard-card">
+        <div class="card-header">
+          <h3>📅 My Bookings</h3>
+        </div>
+        <div class="card-body">
+          <div id="bookingsList">
+            <!-- Bookings will be loaded here by JavaScript -->
+            <p class="loading-text">Loading bookings...</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Book New Room Section -->
+      <div class="dashboard-card">
+        <div class="card-header">
+          <h3>🏨 Book New Room</h3>
+        </div>
+        <div class="card-body">
+          <form id="bookRoomForm">
+            <div class="form-group">
+              <label for="roomSelect">Select Room</label>
+              <select id="roomSelect">
+                <option value="">Choose a room...</option>
+                <!-- Rooms will be loaded by JavaScript -->
+              </select>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="checkInDate">Check-in Date</label>
+                <input type="date" id="checkInDate" required min="2025-10-26" />
+              </div>
+
+              <div class="form-group">
+                <label for="checkOutDate">Check-out Date</label>
+                <input
+                  type="date"
+                  id="checkOutDate"
+                  required
+                  min="2025-10-26"
+                />
+              </div>
+            </div>
+
+            <div class="cost-display">
+              <span>Estimated Cost: </span>
+              <span id="estimatedCost" class="cost-amount">₹0</span>
+            </div>
+
+            <button type="submit" class="btn-primary">Book Room</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- My Food Orders Section -->
+      <div class="dashboard-card">
+        <div class="card-header">
+          <h3>🍽️ My Food Orders</h3>
+        </div>
+        <div class="card-body">
+          <div id="foodOrdersList">
+            <!-- Food orders will be loaded here by JavaScript -->
+            <p class="loading-text">Loading orders...</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Order Food Section -->
+      <div class="dashboard-card">
+        <div class="card-header">
+          <h3>🍴 Order Food</h3>
+        </div>
+        <div class="card-body">
+          <form id="orderFoodForm">
+            <div class="form-group">
+              <label for="foodItem">Food Item</label>
+              <input
+                type="text"
+                id="foodItem"
+                placeholder="e.g., Burger, Pizza, Pasta"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="quantity">Quantity</label>
+              <input
+                type="number"
+                id="quantity"
+                min="1"
+                max="10"
+                value="1"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="specialInstructions"
+                >Special Instructions (Optional)</label
+              >
+              <textarea
+                id="specialInstructions"
+                rows="3"
+                placeholder="Any special requests..."
+              ></textarea>
+            </div>
+
+            <button type="submit" class="btn-primary">Place Order</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Success/Error Message Toast -->
+    <div id="toast" class="toast"></div>
+
+    <!-- <script src="guest.js"></script> -->
+    <script src="guest.js"></script>
+  </body>
+</html>
